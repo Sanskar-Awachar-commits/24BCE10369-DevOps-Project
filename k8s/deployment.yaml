@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: employee-portal-deployment
+  labels:
+    app: employee-portal
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: employee-portal
+  template:
+    metadata:
+      labels:
+        app: employee-portal
+    spec:
+      containers:
+      - name: employee-portal
+        # This matches the image name tagged in your Jenkinsfile
+        image: devops-assignment-portal:latest
+        # Forces Kubernetes to use your local Docker image instead of pulling from Docker Hub
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080

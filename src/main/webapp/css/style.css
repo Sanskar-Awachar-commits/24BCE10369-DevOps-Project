@@ -1,0 +1,98 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+}
+
+body { 
+    background-color: #f4f7f6; 
+    color: #333; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header { 
+    background-color: #003366; 
+    color: #fff; 
+    padding: 1.2rem 5%; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo { 
+    font-size: 1.8rem; 
+    font-weight: bold; 
+    letter-spacing: 1px;
+}
+
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 1.5rem; 
+}
+
+nav a { 
+    color: #d1e0e8; 
+    text-decoration: none; 
+    font-weight: 500; 
+    transition: color 0.3s; 
+}
+
+nav a:hover, nav a.active { 
+    color: #ffffff; 
+    border-bottom: 2px solid #4db8ff;
+    padding-bottom: 5px;
+}
+
+.hero { 
+    text-align: center; 
+    padding: 100px 20px; 
+    background: linear-gradient(135deg, #e0eafc, #cfdef3); 
+    flex-grow: 1;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+.hero h1 { 
+    font-size: 3.5rem; 
+    color: #003366; 
+    margin-bottom: 1rem; 
+}
+
+.hero p { 
+    font-size: 1.2rem; 
+    color: #555; 
+    margin-bottom: 2.5rem; 
+    max-width: 700px; 
+    line-height: 1.6;
+}
+
+button { 
+    padding: 12px 30px; 
+    font-size: 1.1rem; 
+    color: #fff; 
+    background-color: #00509e; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background 0.3s, transform 0.1s; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:hover { 
+    background-color: #003366; 
+    transform: translateY(-2px);
+}
+
+footer { 
+    text-align: center; 
+    padding: 1.5rem; 
+    background-color: #222; 
+    color: #aaa; 
+}

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: employee-portal-service
+spec:
+  # NodePort makes the service accessible from outside the cluster
+  type: NodePort
+  selector:
+    app: employee-portal
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+      # You will access your Kubernetes-hosted website at localhost:30080
+      nodePort: 30080
