@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  graphite:
+    image: graphiteapp/graphite-statsd:latest
+    container_name: graphite-server
+    ports:
+      - "8085:80"       # Graphite Web UI
+      - "2004:2004"     # The port Spring Boot sends metrics to
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana-server
+    ports:
+      - "3000:3000"     # Grafana Web UI
+    environment:
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+    depends_on:
+      - graphite
+
+  nagios:
+    image: jasonrivers/nagios:latest
+    container_name: nagios-server
+    ports:
+      - "8086:80"       # Nagios Web UI
+    volumes:
+      # This mounts the config file you wrote directly into the Nagios server!
+      - ./monitoring/nagios-config.cfg:/opt/nagios/etc/conf.d/custom-config.cfg
