@@ -35,7 +35,7 @@ pipeline {
                     bat 'docker rm portal-app'
                 }
                 // Run the new container on port 8080
-                bat 'docker run -d -p 8080:8080 --name portal-app devops-assignment-portal:latest'
+                bat 'docker run -d -p 8082:8080 --name portal-app devops-assignment-portal:latest'
             }
         }
     }

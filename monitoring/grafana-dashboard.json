@@ -1,0 +1,31 @@
+{
+  "title": "Corporate Portal Metrics (Use Case 1)",
+  "timezone": "browser",
+  "panels": [
+    {
+      "type": "stat",
+      "title": "Application Uptime",
+      "gridPos": { "h": 6, "w": 6, "x": 0, "y": 0 },
+      "targets": [ { "target": "alias(transformNull(stats.timers.employee-portal.uptime, 0), 'Uptime (s)')" } ]
+    },
+    {
+      "type": "gauge",
+      "title": "System CPU Usage",
+      "gridPos": { "h": 6, "w": 6, "x": 6, "y": 0 },
+      "targets": [ { "target": "alias(stats.gauges.system.cpu.usage, 'CPU %')" } ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Memory Consumption",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 6 },
+      "targets": [ { "target": "aliasByNode(stats.gauges.jvm.memory.used.*, 4)" } ]
+    },
+    {
+      "type": "timeseries",
+      "title": "Network Usage & HTTP Requests",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 6 },
+      "targets": [ { "target": "alias(stats.timers.http.server.requests.count, 'HTTP Requests')" } ]
+    }
+  ],
+  "schemaVersion": 36
+}
